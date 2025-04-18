@@ -1,0 +1,167 @@
+Admin Pannel:
+
+add-admin:
+"INSERT INTO tbl_admin SET 
+            full_name='$full_name',
+            username='$username',
+            password='$password'";
+
+delete-admin:
+"DELETE FROM tbl_admin WHERE id=$id";
+
+add-catagory:
+"INSERT INTO tbl_category SET 
+                    title='$title',
+                    image_name='$image_name',
+                    featured='$featured',
+                    active='$active'";
+
+delete-catagory:
+"DELETE FROM tbl_category WHERE id=$id";
+
+add-food:
+"INSERT INTO tbl_food SET 
+                    title = '$title',
+                    description = '$description',
+                    price = $price,
+                    image_name = '$image_name',
+                    category_id = $category,
+                    featured = '$featured',
+                    active = '$active'";
+
+delete-food:
+"DELETE FROM tbl_food WHERE id=$id";
+
+
+
+index:
+Categories: "SELECT * FROM tbl_category";
+Foods: "SELECT * FROM tbl_food";
+Total Orders: "SELECT * FROM tbl_order";
+Total Revenue: "SELECT SUM(total) AS Total FROM tbl_order WHERE status='Delivered'";
+
+
+login:
+"SELECT * FROM tbl_admin WHERE username='$username' AND password='$password'";
+
+
+manage admin:
+"SELECT * FROM tbl_admin";
+
+manage-catagory:
+"SELECT * FROM tbl_category";
+
+manage-food:
+"SELECT * FROM tbl_food";
+
+manage-order:
+ "SELECT * FROM tbl_order ORDER BY id DESC";
+
+
+
+update-admin:
+get admin details: "SELECT * FROM tbl_admin WHERE id=$id";
+update:
+"UPDATE tbl_admin SET
+        full_name = '$full_name',
+        username = '$username' 
+        WHERE id='$id'";
+
+
+update-catagory
+get catagory details: "SELECT * FROM tbl_category WHERE id=$id";
+update:
+"UPDATE tbl_category SET 
+                    title = '$title',
+                    image_name = '$image_name',
+                    featured = '$featured',
+                    active = '$active' 
+                    WHERE id=$id";
+
+
+
+update-food
+get food details:"SELECT * FROM tbl_food WHERE id=$id";
+get catagory details: "SELECT * FROM tbl_category WHERE active='Yes'";
+update:
+"UPDATE tbl_food SET 
+                    title = '$title',
+                    description = '$description',
+                    price = $price,
+                    image_name = '$image_name',
+                    category_id = '$category',
+                    featured = '$featured',
+                    active = '$active'
+                    WHERE id=$id ";
+
+
+update-order:
+get order details: "SELECT * FROM tbl_order WHERE id=$id";
+update:
+"UPDATE tbl_order SET 
+                    qty = $qty,
+                    total = $total,
+                    status = '$status',
+                    customer_name = '$customer_name',
+                    customer_contact = '$customer_contact',
+                    customer_email = '$customer_email',
+                    customer_address = '$customer_address'
+                    WHERE id=$id";
+
+update-password:
+validate user: "SELECT * FROM tbl_admin WHERE id=$id AND password='$current_password'";
+update: 
+"UPDATE tbl_admin SET 
+                                password='$new_password' 
+                                WHERE id=$id ";
+
+
+
+
+
+
+
+
+Customer View:
+
+index:
+display category: "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
+display featured foods: "SELECT * FROM tbl_food WHERE active='Yes' AND featured='Yes' LIMIT 6";
+
+
+order:
+get details of the selected food: "SELECT * FROM tbl_food WHERE id=$food_id";
+add order:
+"INSERT INTO tbl_order SET 
+                        food = '$food',
+                        price = $price,
+                        qty = $qty,
+                        total = $total,
+                        order_date = '$order_date',
+                        status = '$status',
+                        customer_name = '$customer_name',
+                        customer_contact = '$customer_contact',
+                        customer_email = '$customer_email',
+                        customer_address = '$customer_address' ";
+
+
+catagories:
+ "SELECT * FROM tbl_category WHERE active='Yes'";
+
+
+catagory-foods:
+based on title: "SELECT title FROM tbl_category WHERE id=$category_id";
+category : "SELECT * FROM tbl_food WHERE category_id=$category_id";
+
+
+food-search:
+"SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
+
+foods:
+"SELECT * FROM tbl_food WHERE active='Yes'";
+
+
+
+
+
+
