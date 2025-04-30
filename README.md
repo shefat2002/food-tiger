@@ -7,7 +7,7 @@ Food Tiger is a simple yet functional online food ordering website developed usi
 - User Website: [https://www.food-tiger.wuaze.com/](https://www.food-tiger.wuaze.com/)
 - Admin Panel: [https://www.food-tiger.wuaze.com/admin](https://www.food-tiger.wuaze.com/admin)
 - Video: [Click Here...](https://youtu.be/skOBdyUdZz4?si=Mjrn7of6u0ApGsfk)
-  [![Project Video](images/Screenshot.png)](https://youtu.be/skOBdyUdZz4?si=Mjrn7of6u0ApGsfk)
+  [![Project Video](images/Screenshot.png)](https://www.food-tiger.wuaze.com/video.php)
 
 ## 📂 GitHub Repository
 
